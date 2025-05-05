@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shibuya - 2 Layers of Tokyo</title>
+  <link rel="stylesheet" href="shibuya.css">
+   <link rel="icon" type="image/png" href="logo.png">
+  <script>
+    window.addEventListener('load', () => {
+      const logoLetters = document.querySelectorAll('.logo-set span');
+      logoLetters.forEach((el, i) => {
+        const randomY = Math.floor(Math.random() * 40) + 10;
+        const delay = i * 150 + Math.random() * 200;
+        el.style.transition = 'all 0.8s ease-out';
+        el.style.transform = `translateY(${randomY}px)`;
+        setTimeout(() => {
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0)';
+        }, delay);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">Shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">Shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+
+  <header id="fixed-header">
+    <div class="header-title" id="menuToggle">2 Layers of TOKYO</div>
+    <nav class="sidebar">
+      <a href="shi.html">About</a>
+      <a href="scramble.html">Scramble</a>
+      <a href="point.html">Touchpoint</a>
+      <a href="spots2.html">Spots</a>
+    </nav>
+  </header>
+  <!-- 상단 중앙 제목 -->
+  <div class="header-title">2 Layers of TOKYO</div>
+
+  <!-- 메인 Shinjuku 로고 -->
+    <section id="intro">
+    <div class="logo-set">
+      <span class="s1">S</span>
+      <span class="s2">h</span>
+      <span class="s3">i</span>
+      <span class="s4">b</span>
+      <span class="s5">u</span>
+      <span class="s6">y</span>
+      <span class="s7">a</span>
+    </div>
+  </section>
+
+  <script>
+    const menuPanel = document.getElementById('menuPanel');
+const menuToggle = document.getElementById('menuToggle');
+const menuLeft = document.querySelector('.menu-left');
+const separator = document.querySelector('.separator');
+const sidebar = document.querySelector('.sidebar'); // ★ 추가
+
+menuToggle.addEventListener('click', () => {
+  menuPanel.classList.toggle('active');
+  if (menuPanel.classList.contains('active')) {
+    sidebar.style.display = 'none'; // 메뉴 열릴 때 사이드바 숨기기
+  } else {
+    sidebar.style.display = 'flex'; // 메뉴 닫힐 때 사이드바 다시 보이게
+  }
+});
+
+menuLeft.addEventListener('click', () => {
+  menuPanel.classList.remove('active');
+  sidebar.style.display = 'flex'; // 닫히면 다시 보이게
+});
+
+separator.addEventListener('click', () => {
+  menuPanel.classList.remove('active');
+  sidebar.style.display = 'flex'; // 닫히면 다시 보이게
+});
+
+  </script>
+
+</body>
+</html>

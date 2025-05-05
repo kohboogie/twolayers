@@ -1,0 +1,365 @@
+    @font-face {
+      font-family: 'Minecart LCD';
+      src: url('fonts/Minecart LCD.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Audio Nugget';
+      src: url('fonts/AudioNugget.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'PP Editorial New';
+      src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Anthony';
+      src: url('fonts/Anthony.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Rubik Vinyl';
+      src: url('fonts/RubikVinyl-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Yapari Trial';
+      src: url('fonts/YapariTrial-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'SF Display Pro';
+      src: url('fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    }
+    @font-face {
+      font-family: 'Lineal';
+      src: url('fonts/Lineal-Medium.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Lineal';
+      src: url('fonts/Lineal-regular.otf') format('opentype');
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'SF Display Pro', sans-serif;
+      letter-spacing: -0.03em;
+      background: #D9D9D9;
+      color: black;
+    }
+@font-face {
+  font-family: 'togalite';
+  src: url('fonts/togalite.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'togalite';
+  src: url('fonts/togalite.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+.hover-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* Menu panel styles */
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.menu-panel.active {
+  right: 0;
+}
+
+.menu-left {
+  width: 50%;
+  background: #00CCFF;
+  padding: 60px;
+  color: white;
+}
+
+.menu-left img {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 250px;
+}
+
+.menu-left p {
+max-width: 600px;
+  font-size: 35px;
+  line-height: 1.5;
+  margin-bottom: 50px;
+}
+
+/* 기존 menu-panel 설정은 유지됩니다 */
+
+/* 오른쪽 메뉴 영역을 상하 반 분할 구조로 */
+.menu-right {
+  width: 50%;
+  background: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  position: relative;
+  height: 100%;
+}
+
+.half {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 60px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.half-top:hover {
+  background-color: #00CCFF;
+}
+
+.half-bottom:hover {
+  background-color: #FF0000;
+}
+.half-top {
+  justify-content: flex-start;
+  padding-top: 30px; /* 위쪽만 패딩 */
+  align-items: flex-end;
+}
+
+.half-bottom {
+  justify-content: flex-end;
+  padding-bottom: 30px; /* 아래쪽만 패딩 */
+  align-items: flex-end;
+}
+/* 메뉴 제목 및 한자 */
+.menu-label {
+  font-family: 'Lineal', sans-serif;
+  font-weight: 800;
+  font-size: 70px;
+  color: black;
+  text-align: right;
+   margin-bottom: 10px; /* 아래 여백 조절 */
+  margin-top: 0; /* 필요하면 위 여백도 */
+}
+
+.japanese {
+  font-family: 'togalite', sans-serif;
+  font-weight: 800;
+  font-size: 64px;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* 중앙 노란색 구분선 */
+.separator {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  background-color: #FFFB00;
+  font-family: 'Lineal', sans-serif;
+  font-weight: regular;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 10;
+  pointer-events: none; /* hover 방해되지 않도록 */
+}
+
+
+    .main-container {
+      padding: 20px 70px 0 70px;
+    }
+
+    .top-text {
+  font-size: 22px;
+  line-height: 1.3;
+  max-width: 380px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.top-text div {
+  text-align: left;
+}
+
+
+    .logo-set {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 100px 60px 100px;
+
+    }
+
+   .logo-set span {
+      display: inline-block;
+    }
+    .logo-set .two {
+      font-family: 'Minecart LCD'; font-size: 380px; color: red; margin-top: 0px; margin-left: 30px;
+    }
+    .logo-set .L {
+      font-family: 'Audio Nugget'; font-size: 300px; color: black; margin-top: 10px;
+    }
+    .logo-set .a {
+      font-family: 'PP Editorial New'; font-size: 350px; color: #00CCFF; margin-top: 60px;
+    }
+    .logo-set .y {
+      font-family: 'Anthony'; font-size: 450px; color: #FFFB00; margin-top: 90px;
+    }
+    .logo-set .E {
+      font-family: 'Minecart LCD'; font-size: 350px; color: purple; margin-top: 120px;
+    }
+    .logo-set .r {
+      font-family: 'Rubik Vinyl'; font-size: 320px; color: lightgreen; margin-top: 190px; margin-right: 40px;
+    }
+    .logo-set .s {
+      font-family: 'Yapari Trial'; font-size: 200px; color: #57AAB4; margin-top: 180px; margin-right: 0px;
+    }
+
+.logo-set span:hover {
+  transform: scale(1.15) rotate(-1deg);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+  transition: all 0.3s ease;
+   animation: bounceHover 0.4s ease forwards;
+}
+.logo-set span {
+  opacity: 0;
+  transform: translateY(100px) scale(1.2);
+  transition: all 0.6s ease-out;
+}
+
+@keyframes bounceHover {
+  0% {
+    transform: translateY(0) scale(1.1);
+  }
+  30% {
+    transform: translateY(-10px) scale(1.15);
+  }
+  60% {
+    transform: translateY(5px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1.12);
+  }
+}
+
+	.shinjuku-logo, .shibuya-logo {
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 60px 0;
+    }
+    .shinjuku-logo span,
+    .shibuya-logo span {
+      display: inline-block;
+    }
+
+    .shinjuku-logo .s1 { font-family: 'Minecart LCD'; font-size: 380px; margin-top: 0; }
+    .shinjuku-logo .s2 { font-family: 'Audio Nugget'; font-size: 300px; margin-top: 30px; }
+    .shinjuku-logo .s3 { font-family: 'PP Editorial New'; font-size: 350px; margin-top: 60px; }
+    .shinjuku-logo .s4 { font-family: 'Anthony'; font-size: 450px; margin-top: 90px; }
+    .shinjuku-logo .s5 { font-family: 'Minecart LCD'; font-size: 350px; margin-top: 120px; }
+    .shinjuku-logo .s6 { font-family: 'PP Editorial New'; font-size: 190px; margin-top: 150px; }
+    .shinjuku-logo .s7 { font-family: 'Rubik Vinyl'; font-size: 300px; margin-top: 180px; }
+    .shinjuku-logo .s8 { font-family: 'Yapari Trial'; font-size: 140px; margin-top: 370px;margin-left:10px; }
+
+    .shibuya-logo .b1 { font-family: 'Minecart LCD'; font-size: 380px; margin-top: 210px; }
+    .shibuya-logo .b2 { font-family: 'Audio Nugget'; font-size: 300px; margin-top: 180px; }
+    .shibuya-logo .b3 { font-family: 'PP Editorial New'; font-size: 350px; margin-top: 150px; }
+    .shibuya-logo .b4 { font-family: 'Anthony'; font-size: 450px; margin-top: 120px; }
+    .shibuya-logo .b5 { font-family: 'Minecart LCD'; font-size: 350px; margin-top: 90px; }
+    .shibuya-logo .b6 { font-family: 'Rubik Vinyl'; font-size: 300px; margin-top: 60px; }
+    .shibuya-logo .b7 { font-family: 'Yapari Trial'; font-size: 190px; margin-top: 30px; }
+    
+    .shibuya-logo span:hover
+ 	{ transform: scale(1.08);
+	  transition: all 0.3s ease;
+	  color: #00CCFF;
+	  cursor: pointer;
+	}
+	.shinjuku-logo span:hover
+	{ transform: scale(1.08);
+	  transition: all 0.3s ease;
+	  color: red;
+	  cursor: pointer;
+	}
+
+
+    #menuButton {
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  width: 200px;
+  height: auto;
+  transition: all 0.2s ease;
+}
+.custom-footer {
+  background: #D9D9D9;
+  padding: 60px 30px 40px;
+  text-align: center;
+  font-family: 'SF Display Pro', sans-serif;
+  font-weight: regular;
+  color: black;
+}
+
+.footer-logo img {
+  max-width: 90vw;
+  width: 90%;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin: 0 auto;
+  font-size: 16px;
+  gap: 200px;
+}
+
+.footer-bottom a {
+  color: black;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-bottom a:hover {
+  opacity: 0.6;
+}
+
+.footer-bottom .copyright {
+  margin-left: auto;
+  font-size: 14px;
+}

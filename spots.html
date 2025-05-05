@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spots - Shinjuku</title>
+  <link rel="stylesheet" href="shinjuku.css">
+   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body {
+      overflow-y: auto;
+      background: #FF0000;
+      font-family: 'SF Display Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+ header {
+      top: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+    }
+
+    .header-title {
+      color: black;
+      font-family: 'Lineal', sans-serif;
+      font-size: 33px;
+      text-align: center;
+      margin: 0px 0;
+    }
+
+    .sidebar {
+      z-index: 10;
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .sidebar a {
+      font-family: 'Lineal', sans-serif;
+      font-size: 24px;
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: white;
+      font-weight: bold;
+    }
+
+    #about-intro {
+      position: relative;
+      height: 73vh;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    #about-title-bg {
+      background-image: url('images/spots.png');
+      background-repeat: no-repeat;
+      background-size: 1200px auto;
+      background-position: center 80px;
+      position: absolute;
+      top: 0;
+      right: 50px;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .center-image {
+      text-align: center;
+      margin-top: -100px;
+    }
+
+    .center-image img {
+      width: 45vw;
+    }
+
+    .about-inner {
+      text-align: center;
+      max-width: 90vw;
+      margin-top: -100px;
+      padding: 0 20px;
+    }
+
+    .about-inner h1 {
+      color: white;
+      font-size: 48px;
+      font-weight: regular;
+    }
+
+    .about-inner p {
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    .spot-table-container {
+      max-width: 96vw;
+      margin: 100px auto;
+    }
+
+    table.spot-table {
+      width: 100%;
+      border-collapse: collapse;
+    
+    }
+     .spot-table th{
+      font-size: 30px;
+      font-weight: bold;
+      padding: 30px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+     }
+   .spot-table td {
+      font-size: 25px;
+      padding: 30px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .spot-table thead tr {
+      background: #d9d9d9;
+      font-weight: bold;
+    }
+
+    .spot-table tr:hover {
+      background-color: #d9d9d9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title" id="menuToggle">2 Layers of TOKYO</div>
+    <nav class="sidebar">
+      <a href="about.html">About</a>
+      <a href="subway.html">Subway</a>
+      <a href="touch.html">Touchpoint</a>
+      <a href="spots.html" class="active">Spots</a>
+    </nav>
+  </header>
+
+  <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">Shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">Shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="about-intro">
+    <div id="about-title-bg"></div>
+  </section>
+
+  <section id="about-section">
+    <div class="about-inner">
+      <h1>Spots of Shinjuku that I would like to share</h1>
+    </div>
+  </section>
+
+  <div class="spot-table-container">
+    <table class="spot-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Place</th>
+          <th>Address</th>
+          <th>Exit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sightseeing</td><td>Shinjuku Park</td><td>〒160-0014 Tokyo, Shinjuku City, 11 Naitomachi</td><td>Southeast</td></tr>
+        <tr><td>Hotel</td><td>Odakyu Hotel century southern tower</td><td>〒151-0053 Tokyo, Shibuya City, Yoyogi, 2 Chome-2-1</td><td>West</td></tr>
+        <tr><td>Hotel</td><td>Shinjuku Washington Hotel</td><td>〒160-0023 Tokyo, Shinjuku City, 3 Chome-2-9 Nishishinjuku</td><td>West</td></tr>
+        <tr><td>Shopping</td><td>BEAMS shinjuku</td><td>〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−32−6 B1F 5F</td><td>East</td></tr>
+        <tr><td>Shopping</td><td>Hysteric Glamour shinjuku</td><td>〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−38−1 ルミネエスト新宿 B2F</td><td>East</td></tr>
+        <tr><td>Shopping</td><td>The four eyed</td><td>〒160-0021 Tokyo, Shinjuku City, 2 Chome-8-2 Kabukicho パレドール 1F</td><td>South</td></tr>
+        <tr><td>Shopping</td><td>Don quijote</td><td>〒160-0072 Tokyo, Shinjuku City, 1 Chome-12-6 Okubo</td><td>East</td></tr>
+        <tr><td>Shopping</td><td>CHICKS ིྀ</td><td>〒160-0022 Tokyo, Shinjuku City, Shinjuku, 6 Chome−3−6 日野荘 1F</td><td>East</td></tr>
+           <tr><td>Shopping</td><td>BluesisTokyo</td><td>〒160-0022 Tokyo, Shinjuku City, Shinjuku, 6 Chome−12−2 1F</td><td>East</td></tr>
+        <tr><td>Food</td><td>Coffee Times</td><td>〒160-0022 Tokyo, Shinjuku City, Shinjuku, 3 Chome−35−11 タイムスビル １階</td><td>East</td></tr>
+        <tr><td>Food</td><td>Udong Shin</td><td>〒151-0053 Tokyo, Shibuya City, Yoyogi, 2 Chome−20−16 相馬ビル １F</td><td>West</td></tr>
+        <tr><td>Food</td><td>Aburasoba Nishishinjuku</td><td>〒160-0023 Tokyo, Shinjuku City, Nishishinjuku, 1 Chome−13−6 西新宿ビル 1F</td><td>South</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="custom-footer">
+  <div class="footer-logo">
+    <img src="images/foo.png" alt="2 Layers of Tokyo Logo">
+  </div>
+  <div class="footer-bottom">
+    <a href="https://instagram.com/goseozero/" target="_blank">Instagram</a>
+    <a href="goellygo@gmail.com">Contact</a>
+    <a href="index.html">Home</a>
+    <span class="copyright">@2024 Seoyoung Koh All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+
+
+  <script>
+    const menuPanel = document.getElementById('menuPanel');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuLeft = document.querySelector('.menu-left');
+    const separator = document.querySelector('.separator');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      menuPanel.classList.toggle('active');
+      sidebar.style.display = menuPanel.classList.contains('active') ? 'none' : 'flex';
+    });
+
+    menuLeft.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+    separator.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>

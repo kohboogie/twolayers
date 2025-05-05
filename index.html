@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2 Layers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+
+<script>
+    window.addEventListener('load', () => {
+      const logoLetters = document.querySelectorAll('.logo-set span');
+      logoLetters.forEach((el, i) => {
+        const randomY = Math.floor(Math.random() * 40) + 10;
+        const delay = i * 150 + Math.random() * 200;
+        el.style.transition = 'all 0.8s ease-out';
+        el.style.transform = `translateY(${randomY}px)`;
+        setTimeout(() => {
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0)';
+        }, delay);
+      });
+    });
+  </script>
+</head>
+<body>
+  <img src="images/menu.png" alt="Menu" id="menuButton"
+       onmouseover="this.src='images/menu2.png'"
+       onmouseout="this.src='images/menu.png'">
+
+  <div class="main-container">
+    <div class="top-text" style="display: flex; justify-content: center;">
+      <div style="text-align: left;">
+        <p>2 Layers is a personal wayfinding <br>project that explores two iconic areas <br>of Tokyo, Japan — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+      </div>
+    </div>
+ <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="logo-set">
+      <span class="two">2</span>
+      <span class="L">L</span>
+      <span class="a">a</span>
+      <span class="y">y</span>
+      <span class="E">E</span>
+      <span class="r">r</span>
+      <span class="s">s</span>
+    </div>
+  </div>
+  <div id="hoverImage" class="hover-bg"></div>
+
+<div class="shinjuku-logo">
+      <span class="s1">S</span>
+      <span class="s2">h</span>
+      <span class="s3">i</span>
+      <span class="s4">n</span>
+      <span class="s5">j</span>
+      <span class="s6">u</span>
+      <span class="s7">k</span>
+      <span class="s8">u</span>
+    </a>
+    </div>
+
+    <div class="shibuya-logo">
+      <span class="b1">S</span>
+      <span class="b2">h</span>
+      <span class="b3">i</span>
+      <span class="b4">b</span>
+      <span class="b5">u</span>
+      <span class="b6">y</span>
+      <span class="b7">a</span>
+    </div>
+  </div>
+
+  <footer class="custom-footer">
+  <div class="footer-logo">
+    <img src="images/foo.png" alt="2 Layers of Tokyo Logo">
+  </div>
+  <div class="footer-bottom">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <span class="copyright">@2024 Seoyoung Koh All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+  </div>
+  <script>
+    const hoverImage = document.getElementById('hoverImage');
+const shinjukuLogo = document.querySelector('.shinjuku-logo');
+const shibuyaLogo = document.querySelector('.shibuya-logo');
+
+shinjukuLogo.addEventListener('mouseenter', () => {
+  hoverImage.style.backgroundImage = "url('images/s3.png')";
+  hoverImage.style.opacity = "1";
+});
+
+shibuyaLogo.addEventListener('mouseenter', () => {
+  hoverImage.style.backgroundImage = "url('images/shibu.png')";
+  hoverImage.style.opacity = "1";
+});
+
+shinjukuLogo.addEventListener('mouseleave', () => {
+  hoverImage.style.opacity = "0";
+});
+shibuyaLogo.addEventListener('mouseleave', () => {
+  hoverImage.style.opacity = "0";
+});
+
+
+
+  const menuBtn = document.getElementById('menuButton');
+  const menuPanel = document.getElementById('menuPanel');
+  const menuLeft = document.querySelector('.menu-left');
+  const separator = document.querySelector('.separator');
+
+  // 메뉴 버튼 클릭 시 열기/닫기
+  menuBtn.addEventListener('click', () => {
+    menuPanel.classList.toggle('active');
+  });
+
+  // 왼쪽 영역 클릭 시 닫기
+  menuLeft.addEventListener('click', () => {
+    menuPanel.classList.remove('active');
+  });
+
+  // 세퍼레이터 클릭 시 닫기
+  separator.addEventListener('click', () => {
+    menuPanel.classList.remove('active');
+  });
+</script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scramble - Shibuya</title>
+  <link rel="stylesheet" href="shinjuku.css">
+   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body {
+      overflow-y: auto;
+      background: #D9D9D9;
+      font-family: 'SF Display Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      top: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+    }
+
+    .header-title {
+      color: black;
+      font-family: 'Lineal', sans-serif;
+      font-size: 33px;
+      text-align: center;
+      margin: 0px 0;
+    }
+
+    .sidebar {
+      z-index: 10;
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .sidebar a {
+      font-family: 'Lineal', sans-serif;
+      font-size: 24px;
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: red;
+      font-weight: bold;
+    }
+
+    #about-intro {
+  position: relative;
+  height: 73vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+#about-title-bg {
+  background-image: url('images/scram.png');
+  background-repeat: no-repeat;
+  background-size: 1500px auto;
+  background-position: center 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+    .center-image {
+      text-align: center;
+      margin-top: -150px;
+    }
+    .center-image img {
+      width: 45vw;
+    }
+   
+   .nav-section {
+      max-width: 90vw;
+      margin: 100px auto;
+      padding: 50px;
+    }
+    .nav-controls {
+      display: flex;
+      gap: 20px;
+      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 70px;
+    }
+    .table-title {
+  font-size: 23px;
+  font-weight: bold;
+  padding-top: 8px;
+  width: 300px; /* 고정 너비 지정 */
+  border-top: 4px solid #aaa;
+}
+
+.table-row {
+	gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 0 60px;
+}
+
+    .category {
+      font-size: 25px;
+      transition: opacity 0.3s;
+      flex: 1;
+      padding-top: 8px;
+      width: fit-content;
+      display: inline-block;
+    }
+    .category.red {
+
+      border-top: 4px solid red;
+      color: red;
+    }
+    .category.blue {
+      border-top: 4px solid #4dc3ff;
+      color: #4dc3ff;
+    }
+    .category.yellow {
+      border-top: 4px solid #F2FF00;
+      color: #F2FF00;
+    }
+
+    .category.red,
+.category.blue,
+.category.yellow {
+  display: inline-block;
+  width: fit-content;
+}
+
+    .faded {
+      opacity: 0.2;
+    }
+    .highlight {
+      font-weight: bold;
+    }
+    .shinjuku-label {
+  font-weight: bold;
+  margin: 10px 0 40px 0;
+  padding: 50px 0;
+  font-size: 43px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #d9d9d9 50%, rgba(0, 0, 0, 0.2));
+}
+
+    .red { color: red; }
+    .blue { color: #4dc3ff; }
+    .yellow { color: #ffff00; }
+    #about-section {
+  position: relative;
+  z-index: 1;
+  padding: 200px 0;
+  
+}
+    .about-inner {
+      max-width: 90vw;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-inner h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .about-inner p {
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    .full-image {
+      width: 100%;
+  
+    }
+
+    .full-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .scramble-info {
+  max-width: 90vw;
+  margin: 80px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.info-container {
+  display: flex;
+  gap: 150px;
+  align-items: center;
+}
+
+.info-container img {
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+}
+
+.info-text {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  line-height: 2;
+  font-weight: bold;
+}
+
+.num {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red; /* 빨간색 */
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: regular;
+  margin-right: 10px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title" id="menuToggle">2 Layers of TOKYO</div>
+    <nav class="sidebar">
+      <a href="about.html">About</a>
+      <a href="subway.html" class="active">Scramble</a>
+      <a href="point.html">Touchpoint</a>
+      <a href="spots2.html">Spots</a>
+    </nav>
+  </header>
+
+  <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">Shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">Shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+  <section id="about-intro">
+    <div id="about-title-bg"></div>
+  </section>
+   <div class="center-image">
+    <img src="images/cross.png" alt="stairs image" />
+  </div>
+
+<section id="about-section">
+    <div class="about-inner">
+      <h1>Shibuya Scramble</h1>
+      <p>
+        <br>
+        Shibuya Scramble is one of the busiest and most iconic intersections in the world,  <br>
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;where waves of people cross from all directions at once. The overwhelming flow <br>can seem chaotic at first, but don’t worry — with a calm gaze and simple orientation, you can  <br>leasily navigate through. I divided the crossing into small sections to help you find your way <br> with ease.
+      </p>
+    </div>
+  </section>
+
+  <section class="scramble-info">
+  <div class="info-container">
+    <img src="images/info.png" alt="Shibuya Scramble Graphic">
+    <ul class="info-text">
+      <li><span class="num">1</span> Shibuya 109</li>
+      <li><span class="num">2</span> Tsutaya Books</li>
+      <li><span class="num">3</span> 渋谷 Shibuya station</li>
+      <li><span class="num">4</span> Shibuya Scramble Square</li>
+    </ul>
+  </div>
+</section>
+
+
+
+  <div class="nav-section">
+    <div class="nav-controls">
+      <span>Navigating</span>
+      <span id="btn-transfer" class="red" style="cursor:pointer">Transfer</span>
+      <span id="btn-dept" class="blue" style="cursor:pointer">Shopping</span>
+      <span id="btn-travel" class="yellow" style="cursor:pointer">Landmarks</span>
+    </div>
+
+    <div class="table-row">
+      <div class="table-title">Shibuya 109</div>
+      <div class="red category">Yoyogi kyoen Station</div>
+      <div class="blue category">Animate, Uniqlo, Kitamura, <br>Mega Don quijote</div>
+      <div class="yellow category">Yoyogi Park</div>
+    </div>
+    <div class="table-row">
+      <div class="table-title">Tsutaya Books</div>
+      <div class="red category">Odakyu Line</div>
+      <div class="blue category">Parco渋谷,  Loft, Tower Records,<br> Seibu Mall, Supreme, Bape</div>
+      <div class="yellow category">Shinjuku Kyoen</div>
+    </div>
+
+    <div class="table-row">
+      <div class="table-title">Shibuya Station</div>
+      <div class="red category">SHarajuku, Omotesando Station</div>
+      <div class="blue category">Chrome Hearts, Diesel,<br> Hysteric Glamour</div>
+      <div class="yellow category">Miyashita  Park,
+      Hachiko Exit</div>
+    </div>
+    <div class="table-row">
+      <div class="table-title">Shibuya Scramble Square</div>
+      <div class="red category">Ebisu station</div>
+      <div class="blue category">Lumine Building 2</div>
+      <div class="yellow category">Shibuya Stream, Omoide-Yokocho</div>
+    </div>
+  </div>
+    </script>
+
+ <footer class="custom-footer">
+  <div class="footer-logo">
+    <img src="images/foo.png" alt="2 Layers of Tokyo Logo">
+  </div>
+  <div class="footer-bottom">
+    <a href="https://instagram.com/goseozero/" target="_blank">Instagram</a>
+    <a href="goellygo@gmail.com">Contact</a>
+    <a href="index.html">Home</a>
+    <span class="copyright">@2024 Seoyoung Koh All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+
+  <script>
+    const menuPanel = document.getElementById('menuPanel');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuLeft = document.querySelector('.menu-left');
+    const separator = document.querySelector('.separator');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      menuPanel.classList.toggle('active');
+      sidebar.style.display = menuPanel.classList.contains('active') ? 'none' : 'flex';
+    });
+
+    menuLeft.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+    separator.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+  /*Toggle*/
+    function highlightNav(selected) {
+  Object.entries(buttons).forEach(([key, btn]) => {
+    btn.classList.remove('highlight', 'faded');
+    if (key !== selected) {
+      btn.classList.add('faded');
+    } else {
+      btn.classList.add('highlight');
+    }
+  });
+}
+
+    const buttons = {
+      transfer: document.getElementById('btn-transfer'),
+      department: document.getElementById('btn-dept'),
+      travel: document.getElementById('btn-travel'),
+    };
+
+    function clearFocus() {
+      document.querySelectorAll('.category').forEach(el => {
+        el.classList.remove('highlight');
+        el.classList.remove('faded');
+      });
+    }
+
+    buttons.transfer.addEventListener('click', () => {
+      clearFocus();
+      highlightNav('transfer'); 
+      document.querySelectorAll('.category').forEach(el => {
+        if (!el.classList.contains('red')) el.classList.add('faded');
+        else el.classList.add('highlight');
+      });
+    });
+    buttons.department.addEventListener('click', () => {
+      clearFocus();
+      highlightNav('department'); 
+      document.querySelectorAll('.category').forEach(el => {
+        if (!el.classList.contains('blue')) el.classList.add('faded');
+        else el.classList.add('highlight');
+      });
+    });
+    buttons.travel.addEventListener('click', () => {
+      clearFocus();
+      highlightNav('travel'); 
+      document.querySelectorAll('.category').forEach(el => {
+        if (!el.classList.contains('yellow')) el.classList.add('faded');
+        else el.classList.add('highlight');
+      });
+    });
+  </script>
+</body>
+</html>
+

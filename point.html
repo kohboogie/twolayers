@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touchpoints - Shibuya</title>
+  <link rel="stylesheet" href="shinjuku.css">
+   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body {
+      overflow-y: auto;
+      background: #D9D9D9;
+      font-family: 'SF Display Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      top: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+    }
+
+    .header-title {
+      color: black;
+      font-family: 'Lineal', sans-serif;
+      font-size: 33px;
+      text-align: center;
+      margin: 0px 0;
+    }
+
+    .sidebar {
+      z-index: 10;
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .sidebar a {
+      font-family: 'Lineal', sans-serif;
+      font-size: 24px;
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: red;
+      font-weight: bold;
+    }
+
+    #about-intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+#about-title-bg {
+  background-image: url('images/touch.png');
+  background-repeat: no-repeat;
+   background-size: 1400px auto;
+  background-position: center 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+    #about-section {
+  position: relative;
+  z-index: 1;
+  padding: 200px 0;
+  margin-top: -400px;
+}
+    .about-inner {
+      max-width: 90vw;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-inner h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .about-inner p {
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    .full-image {
+      width: 100%;
+  
+    }
+
+    .full-image img {
+      width: 100%;
+      display: block;
+    }
+
+       p1 {
+  display: block;
+  text-align: center;
+  padding-top: 80px;
+  font-size: 80px;
+  text-decoration: underline 4px;
+  padding: 40px;
+}
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 100vw;
+      margin-bottom:100px;
+    }
+    .cell {
+      width: 100%;
+      aspect-ratio: 1 / 1.2;
+      position: relative;
+      overflow: hidden;
+      transition: border-radius 0.4s ease, transform 0.4s ease;
+      cursor: pointer;
+    }
+    .cell.color:hover {
+      border-radius: 50% / 40%;
+      transform: scale(1.02);
+    }
+    .cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .caption {
+      font-weight: regular;
+      position: absolute;
+      text-align: center;
+      top: 12px;
+      left: 12px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .caption-top,
+.caption-bottom {
+  z-index: 3;
+  margin: 15px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: regular;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+}
+
+.caption-top {
+  top: 12px;
+  font-size: 28px;
+}
+
+.caption-bottom {
+  bottom: 12px;
+    font-size: 20px;
+}
+
+    .text-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      font-size: 20px;
+      line-height: 1.4;
+      padding: 20px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+    }
+    .cell.active .text-overlay {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title" id="menuToggle">2 Layers of TOKYO</div>
+    <nav class="sidebar">
+      <a href="shi.html">About</a>
+      <a href="scramble.html">Scramble</a>
+      <a href="point.html" class="active">Touchpoint</a>
+      <a href="spots2.html">Spots</a>
+    </nav>
+  </header>
+
+  <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">Shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">Shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="about-intro">
+    <div id="about-title-bg"></div>
+  </section>
+
+  <section id="about-section">
+    <div class="about-inner">
+      <h1>Touchpoints</h1>
+      <p>
+        <br>
+        In the dense maze of Shinjuku, touchpoints quietly emerged —<br>
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;places that made me pause, look closer, and feel a  <br>fleeting connection. Amid the rush, these small encounters <br>became fragments of the city I chose to remember.
+      </p>
+    </div>
+  </section>
+
+
+   <p1>TOUCHPOINTS IN SHIBUYA</p1>
+  <div class="grid">
+    <div class="cell color" style="background:#C5F3FF" onclick="toggleText(this)">
+
+      <div class="caption-top">My personal view</div>
+  <div class="caption-bottom">Shibuya Scramble</div>
+
+      <div class="text-overlay">Shibuya might just be the most stylish part of Tokyo—and without it, the city feels incomplete. It’s where youth gathers, fashion pulses, and every corner feels like a page out of a street-style magazine. Just walking through its streets, you’re constantly hit with visuals that spark inspiration. It’s chaotic, beautiful, and impossible not to fall in love with.</div>
+    </div>
+
+
+    <div class="cell"><img src="images/bun.png"></div>
+
+
+    <div class="cell color" style="background:#F8FF7A" onclick="toggleText(this)">
+      <div class="caption-top">Furugiya</div>
+  <div class="caption-bottom">Shibuya Vintage shops</div>
+
+      <div class="text-overlay">Walk from Shibuya toward Harajuku, and you’ll find yourself in vintage heaven. In Japan, these shops are called furugiya—and they’re everywhere. What makes them special isn’t just the sheer number, but the way vintage is valued here. The clothes are thoughtfully curated, often in great condition, and sold at surprisingly reasonable prices. It’s the kind of place where you can stumble upon a one-of-a-kind piece and feel like you’ve uncovered a secret.</div>
+    </div>
+
+
+    <div class="cell"><img src="images/yoo.png"></div>
+
+
+    <div class="cell color" style="background:#48957C" onclick="toggleText(this)">
+      <div class="caption-top">Relaxing places right under my nose!</div>
+  <div class="caption-bottom">Ebisu Station</div>
+
+      <div class="text-overlay">If you’re feeling overwhelmed by the crowds and long lines at Shibuya’s cafes and restaurants, take a short trip to nearby Ebisu Station. Just a few minutes away, you'll find quieter streets, stylish shops, and a more laid-back, local atmosphere. It’s the kind of place where you can slow down and breathe a little.
+
+</div>
+    </div>
+
+    <div class="cell"><img src="images/two.png"></div>
+
+    <div class="cell color" style="background:#B06060" onclick="toggleText(this)">
+      <div class="caption-top">Overtourism in Shibuya</div>
+  <div class="caption-bottom">Shibuya</div>
+
+      <div class="text-overlay">In recent years, Japan has been grappling with the effects of overtourism—rising rent in once-local neighborhoods, overcrowded public transit, and a growing sense of fatigue among residents. Shibuya, with its global appeal, is one of the areas most visibly affected. As a traveler, I can’t help but feel both drawn to its charm and concerned about what might be lost along the way.
+
+.</div>
+    </div>
+
+    <div class="cell"><img src="images/blue.png" alt="blue"></div>
+    <div class="cell"><img src="images/hikaru.png" alt="hikaru"></div>
+  </div>
+
+
+    <footer class="custom-footer">
+  <div class="footer-logo">
+    <img src="images/foo.png" alt="2 Layers of Tokyo Logo">
+  </div>
+  <div class="footer-bottom">
+    <a href="https://instagram.com/goseozero/" target="_blank">Instagram</a>
+    <a href="goellygo@gmail.com">Contact</a>
+    <a href="index.html">Home</a>
+    <span class="copyright">@2024 Seoyoung Koh All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+  <script>
+        function toggleText(el) {
+      el.classList.toggle("active");
+    }
+
+    const menuPanel = document.getElementById('menuPanel');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuLeft = document.querySelector('.menu-left');
+    const separator = document.querySelector('.separator');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      menuPanel.classList.toggle('active');
+      sidebar.style.display = menuPanel.classList.contains('active') ? 'none' : 'flex';
+    });
+
+    menuLeft.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+    separator.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+
+</script>
+
+
+</body>
+</html>

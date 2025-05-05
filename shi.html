@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Shibuya</title>
+  <link rel="stylesheet" href="shinjuku.css">
+   <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body {
+      overflow-y: auto;
+      background: #D9D9D9;
+      font-family: 'SF Display Pro', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+     
+      top: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+    }
+
+
+    .header-title {
+      color: black;
+      font-family: 'Lineal', sans-serif;
+      font-size: 33px;
+      text-align: center;
+      margin: 0px 0;
+    }
+
+    .sidebar {
+      z-index: 10;
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .sidebar a {
+      font-family: 'Lineal', sans-serif;
+      font-size: 24px;
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      color: red;
+      font-weight: bold;
+    }
+
+    #about-intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+#about-title-bg {
+  background-image: url('images/about2.png');
+  background-repeat: no-repeat;
+   background-size: 1400px auto;
+  background-position: center -50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+    #about-section {
+  position: relative;
+  z-index: 1;
+  background: url('images/sky.png') no-repeat center center;
+  background-size: cover;
+  padding: 200px 0;
+  margin-top: -500px;
+}
+    .about-inner {
+      max-width: 90vw;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-inner h1 {
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .about-inner p {
+      font-size: 36px;
+      font-weight: normal;
+      line-height: 1.6;
+    }
+
+    #subway-features {
+      height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.4s ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+    .subway-features {
+      text-align: center;
+      color: #02A8D2;
+    }
+
+    .subway-features h2 {
+      font-size: 8vw;
+      border-bottom: 4px solid #02A8D2;
+      display: inline-block;
+      margin-top: 70px;
+      margin-bottom: 20px;
+
+    }
+
+    .subway-features p {
+      font-size: 5vw;
+      margin: 40px 0;
+    }
+
+    .full-image {
+      width: 100%;
+  
+    }
+
+    .full-image img {
+      width: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-title" id="menuToggle">2 Layers of TOKYO</div>
+    <nav class="sidebar">
+      <a href="shi.html" class="active">About</a>
+      <a href="scramble.html">Scramble</a>
+      <a href="point.html">Touchpoint</a>
+      <a href="spots2.html">Spots</a>
+    </nav>
+  </header>
+
+  <div class="menu-panel" id="menuPanel">
+    <div class="menu-left">
+      <img src="images/menutitle.png" alt="menu title">
+      <p>This website is a personal wayfinding project that explores two iconic areas of Tokyo — the underground maze of Shinjuku and the bustling streets of Shibuya — offering my own perspective and suggestions for navigating these layered spaces.</p>
+    </div>
+    <div class="menu-right">
+      <div class="half half-top nav-link shibuya" onclick="location.href='shibuya.html'">
+        <div class="menu-label">Shibuya</div>
+        <span class="japanese">渋谷</span>
+      </div>
+      <div class="separator">2 LAYERS of TOKYO — Shinjuku & Shibuya</div>
+      <div class="half half-bottom nav-link shinjuku" onclick="location.href='shinjuku.html'">
+        <div class="menu-label">Shinjuku</div>
+        <span class="japanese">新宿</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="about-intro">
+    <div id="about-title-bg"></div>
+  </section>
+
+  <section id="about-section">
+    <div class="about-inner">
+      <h1>Welcome to Shibuya!</h1>
+      <p>
+        <br>
+        Shibuya is one of Tokyo's most colorful and busy districts.<br>
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;In the middle of the chaos, there's a certain rhythm — a fleeting sense of <br>
+        belonging. Surrounded by high-rise buildings and the energy of the crowd, Shibuya feels  <br>toverwhelming yet strangely familiar. Let’s start from the heart of it all — the Scramble  and  <br>wander through the layers of the city.
+      </p>
+    </div>
+  </section>
+
+ <section class="subway-features" id="subway-features">
+  <h2>SHIBUYA</h2>
+  <p data-bg="images/s1.png">9 Subway lines</p>
+  <p data-bg="images/crossing.jpg">3000 pedestrians crossing at a time</p>
+  <p data-bg="images/hachiko.png">#1 most visited place by foreigners</p>
+  <p data-bg="images/shibu.png">3,000,000+ Visitors per day</p>
+</section>
+
+  <footer class="custom-footer">
+  <div class="footer-logo">
+    <img src="images/foo.png" alt="2 Layers of Tokyo Logo">
+  </div>
+  <div class="footer-bottom">
+    <a href="https://instagram.com/goseozero/" target="_blank">Instagram</a>
+    <a href="goellygo@gmail.com">Contact</a>
+    <a href="index.html">Home</a>
+    <span class="copyright">@2024 Seoyoung Koh All Rights Reserved.</span>
+  </div>
+</footer>
+
+
+
+  <script>
+
+
+    const menuPanel = document.getElementById('menuPanel');
+    const menuToggle = document.getElementById('menuToggle');
+    const menuLeft = document.querySelector('.menu-left');
+    const separator = document.querySelector('.separator');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuToggle.addEventListener('click', () => {
+      menuPanel.classList.toggle('active');
+      sidebar.style.display = menuPanel.classList.contains('active') ? 'none' : 'flex';
+    });
+
+    menuLeft.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+    separator.addEventListener('click', () => {
+      menuPanel.classList.remove('active');
+      sidebar.style.display = 'flex';
+    });
+
+    /*SubwaySection*/
+  const subwaySection = document.getElementById('subway-features');
+  const items = subwaySection.querySelectorAll('p');
+
+  items.forEach(p => {
+    p.addEventListener('mouseenter', () => {
+      const img = p.getAttribute('data-bg');
+      subwaySection.style.backgroundImage = `url(${img})`;
+
+      items.forEach(other => {
+        if (other !== p) {
+          other.style.opacity = '0';
+        }
+      });
+    });
+
+    p.addEventListener('mouseleave', () => {
+      subwaySection.style.backgroundImage = '';
+      items.forEach(other => {
+        other.style.opacity = '1';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+

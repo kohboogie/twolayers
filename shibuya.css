@@ -1,0 +1,242 @@
+@font-face {
+      font-family: 'Minecart LCD';
+      src: url('fonts/Minecart LCD.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Audio Nugget';
+      src: url('fonts/AudioNugget.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'PP Editorial New';
+      src: url('fonts/PPEditorialNew-Regular.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Anthony';
+      src: url('fonts/Anthony.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Rubik Vinyl';
+      src: url('fonts/RubikVinyl-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Yapari Trial';
+      src: url('fonts/YapariTrial-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'SF Display Pro';
+      src: url('fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    }
+     @font-face {
+      font-family: 'Lineal';
+      src: url('fonts/Lineal-Medium.ttf') format('truetype');
+    }
+
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #00CCFF;
+  font-family: 'SF Display Pro', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+#fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.menu-panel.active {
+  right: 0;
+}
+
+.menu-left {
+  width: 50%;
+  background: #00CCFF;
+  padding: 60px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.menu-left img {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 150px;
+}
+
+.menu-left p {
+  max-width: 600px;
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+.menu-right {
+  width: 50%;
+  background: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.half {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 60px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.half-top:hover {
+  background-color: #00CCFF;
+}
+
+.half-bottom:hover {
+  background-color: #FF0000;
+}
+
+.menu-label {
+  z-index: 100;
+  font-family: 'Lineal', sans-serif;
+  font-size: 70px;
+  font-weight: 800;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.japanese {
+  font-family: 'togalite', sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: white;
+  -webkit-text-stroke: 1px black;
+}
+
+.separator {
+  font-family: 'Lineal', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #FFFB00;
+  padding: 10px 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.header-title {
+  font-family: 'Lineal-medium', sans-serif;
+  font-family: ;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 33px;
+  color: white;
+}
+
+/* Shinjuku 로고 세트 */
+.logo-set {
+  position: absolute;
+  top: 80px; /* 좀 더 아래 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.logo-set span {
+  display: inline-block;
+  color: white;
+  opacity: 1;
+  transition: all 0.6s ease-out;
+}
+
+/* 왼쪽 → 오른쪽으로 갈수록 점점 내려가는 세팅 */
+.logo-set .s1 { font-family: 'Minecart LCD'; font-size: 380px; margin-top: 420px; margin-left: 50px; }
+.logo-set .s2 { font-family: 'Audio Nugget'; font-size: 300px; margin-top: 500px; }
+.logo-set .s3 { font-family: 'PP Editorial New'; font-size: 350px; margin-top: 390px; }
+.logo-set .s4 { font-family: 'Anthony'; font-size: 450px; margin-top: 200px; }
+.logo-set .s5 { font-family: 'Minecart LCD'; font-size: 350px; margin-top: 130px;}
+.logo-set .s6 { font-family: 'Rubik Vinyl'; font-size: 330px; margin-top: 200px; position: relative; left: -40px;}
+.logo-set .s7 { font-family: 'Yapari Trial'; font-size: 150px; margin-top: 200px; position: relative; left: -50px;}
+.logo-set .s8 { font-family: 'PP Editorial New'; font-size: 170px; margin-top: 400px; position: relative; left: -80px; }
+
+/* 우측 상단 메뉴 */
+.sidebar {
+  position: fixed;
+  top: 20px;
+  right: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+.sidebar a {
+  font-family: 'Lineal', sans-serif;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.sidebar a:hover {
+  color: black;
+}
+
+#intro {
+  height: 100vh;
+  background: #00CCFF;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.footer-logo img {
+  max-width: 90vw;
+  width: 90%;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin: 0 auto;
+  font-size: 16px;
+  gap: 200px;
+}
+
+.footer-bottom a {
+  color: black;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.footer-bottom a:hover {
+  opacity: 0.6;
+}
+
+.footer-bottom .copyright {
+  margin-left: auto;
+  font-size: 14px;
+}
